@@ -1,0 +1,29 @@
+GBD-200-1 — a G-SHOCK-style digital display, dot for dot, for Pebble Time 2
+
+Inspired by the GBD-200's main time screen. Every digit, letter and icon was traced dot by dot from photos of the real watch's LCD, then laid out exactly where it sits on the real display: the big time, date, weekday, seconds, the status icons along the bottom, and even its octagon-shaped LCD panel.
+
+SIZE IT YOUR WAY
+• Real size: the same physical size as the real watch, matched side by side
+• Original: one watch LCD dot per screen pixel
+• Fill width, or any custom size from 100% to 136%
+• Crisp at every size: the extra pixels are placed so every stroke stays even
+
+JUST LIKE THE WATCH
+• 12/24-hour follows your Pebble's setting, with the watch's "P" for afternoon hours
+• DST indicator during daylight saving time, or show your time zone (EST, CEST...)
+• Alarm icon lights up automatically while you have a Pebble alarm set
+• "!" low battery warning at 20% or less
+• Optional SNZ, VIB, LT and button-tone icons, airplane icon when your phone disconnects
+• REV / UP / DOWN labels beside the Pebble's buttons, and PEBBLE / WR30M printed around the display
+
+MORE
+• Seconds off by default to save battery, or show seconds, or the current temperature
+• Octagon LCD panel in dark gray, inverted, or off, in three shades
+
+Temperature uses the Pebble app's weather plugin (developer preview): turn on plugins in the Pebble app and allow the Location permission. Location is used only by the Pebble app to look up the weather; this watchface doesn't collect, store or send any data.
+
+Pebble Time 2 only.
+
+Open source (MIT): github.com/CATEIN/gbd-200-1-pebble
+
+Not affiliated with or endorsed by Casio. CASIO and G-SHOCK are trademarks of Casio Computer Co., Ltd.

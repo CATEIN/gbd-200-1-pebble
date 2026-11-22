@@ -1,0 +1,52 @@
+{
+  "name": "gbd200",
+  "author": "CATEIN",
+  "version": "1.0.0",
+  "keywords": [
+    "pebble-app"
+  ],
+  "private": true,
+  "dependencies": {},
+  "pebble": {
+    "displayName": "GBD-200-1",
+    "uuid": "41775ce9-e875-46b8-b988-e213ffc103b1",
+    "sdkVersion": "3",
+    "enableMultiJS": true,
+    "capabilities": [
+      "configurable"
+    ],
+    "targetPlatforms": [
+      "emery"
+    ],
+    "watchapp": {
+      "watchface": true
+    },
+    "messageKeys": [
+      "ScaleMode",
+      "Indicators",
+      "ScalePercent",
+      "SecondsMode",
+      "TzMode",
+      "Temperature",
+      "PanelMode",
+      "PanelShade"
+    ],
+    "resources": {
+      "media": [
+        {
+          "type": "bitmap",
+          "name": "IMAGE_MENU_ICON",
+          "file": "images/menu_icon.png",
+          "menuIcon": true
+        }
+      ]
+    },
+    "usesPermissions": [
+      {
+        "name": "Location",
+        "reason": "To show the temperature in place of the seconds (optional)",
+        "required": false
+      }
+    ]
+  }
+}

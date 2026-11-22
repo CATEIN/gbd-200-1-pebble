@@ -1,0 +1,8 @@
+# Pebble build output
+build/
+.lock-waf_*
+
+# local editor / assistant settings
+.claude/
+
+__pycache__/
