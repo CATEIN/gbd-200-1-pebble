@@ -1,1 +1,2 @@
-First release.
+Now on Pebble 2 Duo and Pebble 2, at full 1:1 size.
+M, O and N (MON) and the seconds 2 traced from the real watch.

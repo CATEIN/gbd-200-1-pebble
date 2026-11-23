@@ -2,7 +2,7 @@
 
 ![GBD-200-1 banner](store/banner-720x320.png)
 
-A Pebble Time 2 watchface recreating the main time display of the Casio
+A Pebble Time 2 / Pebble 2 Duo watchface recreating the main time display of the Casio
 G-SHOCK GBD-200, dot for dot. Not affiliated with or endorsed by Casio.
 
 ## How it's made

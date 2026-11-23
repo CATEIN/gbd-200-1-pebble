@@ -43,6 +43,16 @@ function oneOf(value, allowed, fallback) {
   return allowed.indexOf(value) >= 0 ? value : fallback;
 }
 
+// Pebble 2 / 2 Duo: 144 pixels wide, where the face is always drawn 1:1.
+function narrowScreen() {
+  try {
+    var platform = Pebble.getActiveWatchInfo && Pebble.getActiveWatchInfo().platform;
+    return platform === 'diorite' || platform === 'flint';
+  } catch (e) {
+    return false;
+  }
+}
+
 function pageHtml(settings) {
   var mode = oneOf(settings.ScaleMode, [FILL, ORIGINAL, REAL, CUSTOM], FILL);
   var pct = typeof settings.ScalePercent === 'number' ? settings.ScalePercent : REAL_PERCENT;
@@ -77,16 +87,21 @@ function pageHtml(settings) {
     'button{width:100%;padding:14px;font-size:17px;border:0;border-radius:10px;' +
     'background:#ff6a00;color:#fff;margin-top:8px}' +
     '</style></head><body><h1>Display size</h1>' +
-    option('mode', mode, FILL, 'Fill width', 'Scaled up 4/3 to fill the screen width, same proportions as the real watch.') +
-    option('mode', mode, ORIGINAL, 'Original scale', 'One watch LCD dot per screen pixel, centered on the screen.') +
-    option('mode', mode, REAL, 'Real size', 'The same physical size as the real watch (' + REAL_PERCENT +
-      '%, matched side by side against a real GBD-200).') +
-    option('mode', mode, CUSTOM, 'Custom size', 'Pick your own scale below.') +
-    '<div class="opt"><span style="flex:1;min-width:0"><b>Custom size: <span id="pctv">' + pct + '</span>%</b>' +
-    '<input id="pct" type="range" min="' + MIN_PERCENT + '" max="' + MAX_PERCENT + '" value="' + pct + '"' +
-    ' oninput="document.getElementById(\'pctv\').textContent=this.value;' +
-    'document.querySelector(\'input[name=mode][value=\\\'' + CUSTOM + '\\\']\').checked=true">' +
-    '<small>100% is original scale, 136% fills the width.</small></span></div>' +
+    (narrowScreen()
+      ? '<div class="opt"><span><b>Original scale</b><small>On Pebble 2 and 2 Duo the face is always one ' +
+        'watch LCD dot per pixel, which is about the real watch\'s size.</small></span></div>' +
+        '<input type="hidden" name="mode" value="' + mode + '">' +
+        '<input type="hidden" id="pct" value="' + pct + '">'
+      : option('mode', mode, FILL, 'Fill width', 'Scaled up 4/3 to fill the screen width, same proportions as the real watch.') +
+        option('mode', mode, ORIGINAL, 'Original scale', 'One watch LCD dot per screen pixel, centered on the screen.') +
+        option('mode', mode, REAL, 'Real size', 'The same physical size as the real watch (' + REAL_PERCENT +
+        '%, matched side by side against a real GBD-200).') +
+        option('mode', mode, CUSTOM, 'Custom size', 'Pick your own scale below.') +
+        '<div class="opt"><span style="flex:1;min-width:0"><b>Custom size: <span id="pctv">' + pct + '</span>%</b>' +
+        '<input id="pct" type="range" min="' + MIN_PERCENT + '" max="' + MAX_PERCENT + '" value="' + pct + '"' +
+        ' oninput="document.getElementById(\'pctv\').textContent=this.value;' +
+        'document.querySelector(\'input[name=mode][value=\\\'' + CUSTOM + '\\\']\').checked=true">' +
+        '<small>100% is original scale, 136% fills the width.</small></span></div>') +
     '<h2>Display panel</h2>' +
     option('panel', panel, PANEL_GRAY, 'Octagon', 'The real watch\'s LCD panel shape in dark gray, on black.') +
     option('panel', panel, PANEL_INVERTED, 'Inverted', 'A black octagon with dark gray around it.') +
@@ -107,7 +122,7 @@ function pageHtml(settings) {
     option('tz', tz, TZ_OFF, 'Off', 'Nothing there.') +
     '<h2>Indicators</h2>' + INDICATORS.map(check).join('') +
     '<button id="save">Save</button><script>' +
-    'function pick(n){return Number(document.querySelector("input[name="+n+"]:checked").value);}' +
+    'function pick(n){var e=document.querySelector("input[name="+n+"]:checked")||document.querySelector("input[name="+n+"]");return Number(e.value);}' +
     'document.getElementById("save").onclick=function(){' +
     'var ind=0;[].forEach.call(document.querySelectorAll(".ind"),function(c){' +
     'if(c.checked!==c.classList.contains("inv"))ind|=Number(c.value);});' +

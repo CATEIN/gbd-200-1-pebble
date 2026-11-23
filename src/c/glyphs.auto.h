@@ -16,17 +16,19 @@ typedef struct { uint8_t w, h, fam; const uint32_t *rows; } Glyph;
 static const uint64_t FAM_BIG_DIGITS_X[] = {0x0ull, 0x0ull, 0x200ull, 0x200ull, 0x200ull, 0x200ull, 0x80080ull, 0x80080ull, 0x80080ull, 0x80080ull, 0x202020ull, 0x202020ull, 0x202020ull, 0x202208ull, 0x202208ull, 0x202208ull, 0x202208ull, 0x1012404ull, 0x1012404ull, 0x1012404ull, 0x1012404ull, 0x1111084ull, 0x1111084ull, 0x1111084ull, 0x1111084ull, 0x2222222ull, 0x2222222ull, 0x2222222ull, 0x242430aull, 0x242430aull, 0x242430aull, 0x242430aull, 0x24a48a2ull, 0x24a48a2ull, 0x24a48a2ull, 0x24a48a2ull, 0x2525252ull, 0x24a48a2ull};
 static const uint64_t FAM_BIG_DIGITS_Y[] = {0x0ull, 0x0ull, 0x4000000ull, 0x4000000ull, 0x4000400ull, 0x4000400ull, 0x800004040ull, 0x800004040ull, 0x800004040ull, 0x2010200010ull, 0x2010200010ull, 0x4040201010ull, 0x4040201010ull, 0x8102040404ull, 0x8102040404ull, 0x8102040404ull, 0x8208201050ull, 0x8208201050ull, 0x10421044104ull, 0x10421044104ull, 0x10884211088ull, 0x10884211088ull, 0x10884211088ull, 0x11048831050ull, 0x11048831050ull, 0x22221242222ull, 0x22221242222ull, 0x22450611112ull, 0x22450611112ull, 0x22450611112ull, 0x2449125090aull, 0x2449125090aull, 0x24864611452ull, 0x24864611452ull, 0x2494a249492ull, 0x2494a249492ull, 0x2494a249492ull, 0x24864611452ull};
 static const uint64_t FAM_SEC_DIGITS_X[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x20ull, 0x20ull, 0x20ull, 0x20ull, 0x20ull, 0x20ull, 0x810ull, 0x810ull, 0x810ull, 0x810ull, 0x810ull, 0x810ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x4222ull, 0x4222ull, 0x4222ull, 0x4222ull, 0x4222ull, 0x4222ull, 0x4222ull, 0x4a12ull, 0x4a12ull, 0x4a12ull, 0x4a12ull, 0x4a12ull, 0x4a12ull, 0x5292ull, 0x5292ull, 0x4a12ull};
-static const uint64_t FAM_SEC_DIGITS_Y[] = {0x0ull, 0x0ull, 0x0ull, 0x4000ull, 0x4000ull, 0x4000ull, 0x4000ull, 0x20010ull, 0x20010ull, 0x20010ull, 0x20010ull, 0x80808ull, 0x80808ull, 0x80808ull, 0x80808ull, 0x80808ull, 0x104404ull, 0x104404ull, 0x104404ull, 0x104404ull, 0x108884ull, 0x108884ull, 0x108884ull, 0x108884ull, 0x222212ull, 0x222212ull, 0x222212ull, 0x222212ull, 0x222212ull, 0x244492ull, 0x244492ull, 0x244492ull, 0x244492ull, 0x249192ull, 0x249192ull, 0x249192ull, 0x249192ull, 0x249192ull};
+static const uint64_t FAM_SEC_DIGITS_Y[] = {0x0ull, 0x0ull, 0x0ull, 0x4000ull, 0x4000ull, 0x4000ull, 0x4000ull, 0x20010ull, 0x20010ull, 0x20010ull, 0x20010ull, 0x80808ull, 0x80808ull, 0x80808ull, 0x80808ull, 0x80808ull, 0x104408ull, 0x104408ull, 0x104408ull, 0x104408ull, 0x108884ull, 0x108884ull, 0x108884ull, 0x108884ull, 0x222212ull, 0x222212ull, 0x222212ull, 0x222212ull, 0x222212ull, 0x244492ull, 0x244492ull, 0x244492ull, 0x244492ull, 0x249192ull, 0x249192ull, 0x249192ull, 0x249192ull, 0x249192ull};
 static const uint64_t FAM_DATE_DIGITS_X[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x104ull, 0x104ull, 0x104ull, 0x104ull, 0x104ull, 0x104ull, 0x104ull, 0x104ull, 0x104ull, 0x242ull, 0x242ull, 0x242ull, 0x242ull, 0x242ull, 0x242ull, 0x242ull, 0x242ull, 0x242ull, 0x24aull, 0x24aull, 0x24aull, 0x24aull, 0x24aull, 0x24aull};
 static const uint64_t FAM_DATE_DIGITS_Y[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x400ull, 0x400ull, 0x400ull, 0x400ull, 0x400ull, 0x400ull, 0x410ull, 0x410ull, 0x410ull, 0x410ull, 0x410ull, 0x410ull, 0x410ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x2212ull, 0x2212ull, 0x2212ull, 0x2212ull, 0x2212ull, 0x2212ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull};
 static const uint64_t FAM_SLASH_X[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x2aull, 0x22ull};
 static const uint64_t FAM_SLASH_Y[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x808ull, 0x808ull, 0x808ull, 0x808ull, 0x808ull, 0x808ull, 0x808ull, 0x1044ull, 0x1044ull, 0x1044ull, 0x1044ull, 0x1044ull, 0x1044ull, 0x1044ull, 0x2444ull, 0x2444ull, 0x2444ull, 0x2444ull, 0x2444ull, 0x2444ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull};
 static const uint64_t FAM_LETTERS_W3_X[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull};
 static const uint64_t FAM_LETTERS_W3_Y[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x808ull, 0x808ull, 0x808ull, 0x808ull, 0x808ull, 0x808ull, 0x808ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x2222ull, 0x2222ull, 0x2222ull, 0x2222ull, 0x2222ull, 0x2222ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull};
-static const uint64_t FAM_LETTERS_W11_X[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x104ull, 0x104ull, 0x104ull, 0x104ull, 0x104ull, 0x104ull, 0x104ull, 0x104ull, 0x104ull, 0x124ull, 0x124ull, 0x124ull, 0x124ull, 0x124ull, 0x124ull, 0x124ull, 0x124ull, 0x124ull, 0x24aull, 0x24aull, 0x24aull, 0x24aull, 0x24aull, 0x24aull};
-static const uint64_t FAM_LETTERS_W11_Y[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x600ull, 0x600ull, 0x600ull, 0x600ull, 0x600ull, 0x600ull, 0x600ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1244ull, 0x1244ull, 0x1244ull, 0x1244ull, 0x1244ull, 0x1244ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull};
-static const uint64_t FAM_LETTERS_W13_X[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x208ull, 0x208ull, 0x208ull, 0x208ull, 0x208ull, 0x208ull, 0x208ull, 0x208ull, 0x424ull, 0x424ull, 0x424ull, 0x424ull, 0x424ull, 0x424ull, 0x424ull, 0x924ull, 0x924ull, 0x924ull, 0x924ull, 0x924ull, 0x924ull, 0x924ull, 0x924ull, 0xa2aull, 0xa2aull, 0x924ull};
-static const uint64_t FAM_LETTERS_W13_Y[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x808ull, 0x808ull, 0x808ull, 0x808ull, 0x808ull, 0x808ull, 0x808ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x2222ull, 0x2222ull, 0x2222ull, 0x2222ull, 0x2222ull, 0x2222ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull};
+static const uint64_t FAM_LETTERS_W11_X[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x104ull, 0x104ull, 0x104ull, 0x104ull, 0x104ull, 0x104ull, 0x104ull, 0x104ull, 0x104ull, 0x222ull, 0x222ull, 0x222ull, 0x222ull, 0x222ull, 0x222ull, 0x222ull, 0x222ull, 0x222ull, 0x22aull, 0x22aull, 0x22aull, 0x22aull, 0x22aull, 0x22aull};
+static const uint64_t FAM_LETTERS_W11_Y[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x20ull, 0x20ull, 0x20ull, 0x20ull, 0x20ull, 0x20ull, 0x210ull, 0x210ull, 0x210ull, 0x210ull, 0x210ull, 0x210ull, 0x210ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x1084ull, 0x2442ull, 0x2442ull, 0x2442ull, 0x2442ull, 0x2442ull, 0x2442ull, 0x2512ull, 0x2512ull, 0x2512ull, 0x2512ull, 0x2512ull, 0x2512ull, 0x2512ull, 0x2512ull};
+static const uint64_t FAM_LETTERS_W12_X[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x40ull, 0x40ull, 0x40ull, 0x40ull, 0x40ull, 0x40ull, 0x40ull, 0x40ull, 0x201ull, 0x201ull, 0x201ull, 0x201ull, 0x201ull, 0x201ull, 0x201ull, 0x201ull, 0x444ull, 0x444ull, 0x444ull, 0x444ull, 0x444ull, 0x444ull, 0x444ull, 0x444ull, 0x444ull, 0x492ull, 0x492ull, 0x492ull, 0x492ull, 0x492ull, 0x492ull, 0x492ull, 0x492ull};
+static const uint64_t FAM_LETTERS_W12_Y[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x1ull, 0x1ull, 0x1ull, 0x1ull, 0x1ull, 0x1ull, 0x820ull, 0x820ull, 0x820ull, 0x820ull, 0x820ull, 0x820ull, 0x820ull, 0x2084ull, 0x2084ull, 0x2084ull, 0x2084ull, 0x2084ull, 0x2084ull, 0x2084ull, 0xa28ull, 0xa28ull, 0xa28ull, 0xa28ull, 0xa28ull, 0xa28ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull};
+static const uint64_t FAM_LETTERS_W13_X[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x110ull, 0x110ull, 0x110ull, 0x110ull, 0x110ull, 0x110ull, 0x110ull, 0x110ull, 0x424ull, 0x424ull, 0x424ull, 0x424ull, 0x424ull, 0x424ull, 0x424ull, 0x924ull, 0x924ull, 0x924ull, 0x924ull, 0x924ull, 0x924ull, 0x924ull, 0x924ull, 0x1249ull, 0x1249ull, 0x924ull};
+static const uint64_t FAM_LETTERS_W13_Y[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x80ull, 0x808ull, 0x808ull, 0x808ull, 0x808ull, 0x808ull, 0x808ull, 0x808ull, 0x884ull, 0x884ull, 0x884ull, 0x884ull, 0x884ull, 0x884ull, 0x884ull, 0x2222ull, 0x2222ull, 0x2222ull, 0x2222ull, 0x2222ull, 0x2222ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull, 0x2492ull};
 static const uint64_t FAM_LOGO_X[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x41ull, 0x41ull, 0x41ull, 0x41ull, 0x41ull, 0x41ull, 0x41ull, 0x41ull, 0x41ull, 0x41ull, 0x41ull, 0x41ull, 0x41ull, 0x52ull, 0x52ull, 0x52ull, 0x52ull, 0x52ull, 0x52ull};
 static const uint64_t FAM_LOGO_Y[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x4ull, 0x4ull, 0x4ull, 0x4ull, 0x4ull, 0x4ull, 0x4ull, 0x4ull, 0x4ull, 0x4ull, 0x4ull, 0x4ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x52ull, 0x52ull, 0x52ull, 0x52ull, 0x52ull, 0x52ull};
 static const uint64_t FAM_WR_W8_X[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x10ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x42ull, 0x52ull, 0x52ull, 0x52ull, 0x52ull, 0x52ull, 0x52ull};
@@ -71,8 +73,8 @@ static const uint64_t FAM_ICON_ALERT_X[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0u
 static const uint64_t FAM_ICON_ALERT_Y[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x40ull, 0x40ull, 0x40ull, 0x40ull, 0x40ull, 0x40ull, 0x40ull, 0x40ull, 0x30ull, 0x30ull, 0x30ull, 0x30ull, 0x30ull, 0x30ull, 0x30ull, 0x30ull, 0x502ull, 0x502ull, 0x502ull, 0x502ull, 0x502ull, 0x502ull, 0x502ull, 0x502ull, 0x502ull, 0x506ull, 0x506ull, 0x506ull, 0x506ull, 0x506ull, 0x506ull, 0x506ull, 0x506ull};
 static const uint64_t FAM_ICON_LT_X[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x2ull, 0x81ull, 0x81ull, 0x81ull, 0x81ull, 0x81ull, 0x81ull, 0x81ull, 0x81ull, 0x81ull, 0x81ull, 0x122ull, 0x122ull, 0x122ull, 0x122ull, 0x122ull, 0x122ull, 0x122ull, 0x122ull, 0x122ull, 0x122ull, 0x14aull, 0x14aull, 0x122ull};
 static const uint64_t FAM_ICON_LT_Y[] = {0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x0ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x8ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x22ull, 0x2aull, 0x22ull};
-#define NUM_FAMILIES 29
-static const Family FAMILIES[] = {{27, 43, FAM_BIG_DIGITS_X, FAM_BIG_DIGITS_Y}, {16, 23, FAM_SEC_DIGITS_X, FAM_SEC_DIGITS_Y}, {11, 15, FAM_DATE_DIGITS_X, FAM_DATE_DIGITS_Y}, {7, 15, FAM_SLASH_X, FAM_SLASH_Y}, {3, 15, FAM_LETTERS_W3_X, FAM_LETTERS_W3_Y}, {11, 15, FAM_LETTERS_W11_X, FAM_LETTERS_W11_Y}, {13, 15, FAM_LETTERS_W13_X, FAM_LETTERS_W13_Y}, {8, 8, FAM_LOGO_X, FAM_LOGO_Y}, {8, 6, FAM_WR_W8_X, FAM_WR_W8_Y}, {12, 6, FAM_WR_W12_X, FAM_WR_W12_Y}, {6, 7, FAM_TZ_W6_X, FAM_TZ_W6_Y}, {7, 7, FAM_TZ_W7_X, FAM_TZ_W7_Y}, {4, 4, FAM_DEGREE_X, FAM_DEGREE_Y}, {6, 27, FAM_LABEL_REV_X, FAM_LABEL_REV_Y}, {6, 20, FAM_LABEL_UP_X, FAM_LABEL_UP_Y}, {6, 6, FAM_LABEL_RUN_X, FAM_LABEL_RUN_Y}, {6, 36, FAM_LABEL_DOWN_X, FAM_LABEL_DOWN_Y}, {20, 7, FAM_ICON_DST_X, FAM_ICON_DST_Y}, {11, 10, FAM_ICON_P_X, FAM_ICON_P_Y}, {7, 12, FAM_ICON_COLON_DOT_X, FAM_ICON_COLON_DOT_Y}, {5, 9, FAM_ICON_BT_X, FAM_ICON_BT_Y}, {13, 9, FAM_ICON_BUBBLE_X, FAM_ICON_BUBBLE_Y}, {15, 7, FAM_ICON_SNZ_X, FAM_ICON_SNZ_Y}, {17, 7, FAM_ICON_SIGNAL_X, FAM_ICON_SIGNAL_Y}, {9, 10, FAM_ICON_MUTE_X, FAM_ICON_MUTE_Y}, {13, 11, FAM_ICON_VIB_X, FAM_ICON_VIB_Y}, {13, 10, FAM_ICON_PLANE_X, FAM_ICON_PLANE_Y}, {12, 12, FAM_ICON_ALERT_X, FAM_ICON_ALERT_Y}, {10, 7, FAM_ICON_LT_X, FAM_ICON_LT_Y}};
+#define NUM_FAMILIES 30
+static const Family FAMILIES[] = {{27, 43, FAM_BIG_DIGITS_X, FAM_BIG_DIGITS_Y}, {16, 23, FAM_SEC_DIGITS_X, FAM_SEC_DIGITS_Y}, {11, 15, FAM_DATE_DIGITS_X, FAM_DATE_DIGITS_Y}, {7, 15, FAM_SLASH_X, FAM_SLASH_Y}, {3, 15, FAM_LETTERS_W3_X, FAM_LETTERS_W3_Y}, {11, 15, FAM_LETTERS_W11_X, FAM_LETTERS_W11_Y}, {12, 15, FAM_LETTERS_W12_X, FAM_LETTERS_W12_Y}, {13, 15, FAM_LETTERS_W13_X, FAM_LETTERS_W13_Y}, {8, 8, FAM_LOGO_X, FAM_LOGO_Y}, {8, 6, FAM_WR_W8_X, FAM_WR_W8_Y}, {12, 6, FAM_WR_W12_X, FAM_WR_W12_Y}, {6, 7, FAM_TZ_W6_X, FAM_TZ_W6_Y}, {7, 7, FAM_TZ_W7_X, FAM_TZ_W7_Y}, {4, 4, FAM_DEGREE_X, FAM_DEGREE_Y}, {6, 27, FAM_LABEL_REV_X, FAM_LABEL_REV_Y}, {6, 20, FAM_LABEL_UP_X, FAM_LABEL_UP_Y}, {6, 6, FAM_LABEL_RUN_X, FAM_LABEL_RUN_Y}, {6, 36, FAM_LABEL_DOWN_X, FAM_LABEL_DOWN_Y}, {20, 7, FAM_ICON_DST_X, FAM_ICON_DST_Y}, {11, 10, FAM_ICON_P_X, FAM_ICON_P_Y}, {7, 12, FAM_ICON_COLON_DOT_X, FAM_ICON_COLON_DOT_Y}, {5, 9, FAM_ICON_BT_X, FAM_ICON_BT_Y}, {13, 9, FAM_ICON_BUBBLE_X, FAM_ICON_BUBBLE_Y}, {15, 7, FAM_ICON_SNZ_X, FAM_ICON_SNZ_Y}, {17, 7, FAM_ICON_SIGNAL_X, FAM_ICON_SIGNAL_Y}, {9, 10, FAM_ICON_MUTE_X, FAM_ICON_MUTE_Y}, {13, 11, FAM_ICON_VIB_X, FAM_ICON_VIB_Y}, {13, 10, FAM_ICON_PLANE_X, FAM_ICON_PLANE_Y}, {12, 12, FAM_ICON_ALERT_X, FAM_ICON_ALERT_Y}, {10, 7, FAM_ICON_LT_X, FAM_ICON_LT_Y}};
 #define MAX_GLYPH_W 27
 #define MAX_GLYPH_H 43
 
@@ -595,14 +597,14 @@ static const uint32_t SEC_DIGITS_1_ROWS[] = {0x7e, 0xfe, 0x1fe, 0x1fe, 0x3e, 0x3
 //   #####...........
 //   #####...........
 //   #####...........
-//   #####......#####
-//   #####......#####
-//   #####......#####
+//   #####...........
+//   #####...........
+//   #####...........
 //   ################
 //   ################
 //   ################
 //   ################
-static const uint32_t SEC_DIGITS_2_ROWS[] = {0x3ffc, 0x7ffe, 0xffff, 0xffff, 0xf81f, 0xf81f, 0x1f, 0x1f, 0x1f, 0x3fff, 0x7fff, 0xffff, 0xffff, 0xf800, 0xf800, 0xf800, 0xf81f, 0xf81f, 0xf81f, 0xffff, 0xffff, 0xffff, 0xffff};
+static const uint32_t SEC_DIGITS_2_ROWS[] = {0x3ffc, 0x7ffe, 0xffff, 0xffff, 0xf81f, 0xf81f, 0x1f, 0x1f, 0x1f, 0x3fff, 0x7fff, 0xffff, 0xffff, 0xf800, 0xf800, 0xf800, 0xf800, 0xf800, 0xf800, 0xffff, 0xffff, 0xffff, 0xffff};
 // SEC_DIGITS_3
 //   ..############..
 //   .##############.
@@ -1080,45 +1082,45 @@ static const Glyph LETTER_H = {11, 15, 5, LETTER_H_ROWS};
 static const uint32_t LETTER_I_ROWS[] = {0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7, 0x7};
 static const Glyph LETTER_I = {3, 15, 4, LETTER_I_ROWS};
 // LETTER_M
-//   ..###...###..
-//   .#####.#####.
-//   .###########.
-//   ###..###..###
-//   ###..###..###
-//   ###..###..###
-//   ###..###..###
-//   ###..###..###
-//   ###..###..###
-//   ###..###..###
-//   ###..###..###
-//   ###..###..###
-//   ###..###..###
-//   ###..###..###
 //   ###.......###
-static const uint32_t LETTER_M_ROWS[] = {0x71c, 0xfbe, 0xffe, 0x1ce7, 0x1ce7, 0x1ce7, 0x1ce7, 0x1ce7, 0x1ce7, 0x1ce7, 0x1ce7, 0x1ce7, 0x1ce7, 0x1ce7, 0x1c07};
-static const Glyph LETTER_M = {13, 15, 6, LETTER_M_ROWS};
+//   ####.....####
+//   #####...#####
+//   #####...#####
+//   ######.######
+//   ###.#####.###
+//   ###.#####.###
+//   ###..###..###
+//   ###..###..###
+//   ###..###..###
+//   ###...#...###
+//   ###.......###
+//   ###.......###
+//   ###.......###
+//   ###.......###
+static const uint32_t LETTER_M_ROWS[] = {0x1c07, 0x1e0f, 0x1f1f, 0x1f1f, 0x1fbf, 0x1df7, 0x1df7, 0x1ce7, 0x1ce7, 0x1ce7, 0x1c47, 0x1c07, 0x1c07, 0x1c07, 0x1c07};
+static const Glyph LETTER_M = {13, 15, 7, LETTER_M_ROWS};
 // LETTER_N
-//   ###.....###
-//   ####....###
-//   ####....###
-//   #####...###
-//   ###.#...###
-//   ###.##..###
-//   ###..#..###
-//   ###..##.###
-//   ###...#.###
-//   ###...#####
-//   ###....####
-//   ###....####
-//   ###.....###
-//   ###.....###
-//   ###.....###
-static const uint32_t LETTER_N_ROWS[] = {0x707, 0x787, 0x787, 0x7c7, 0x747, 0x767, 0x727, 0x737, 0x717, 0x71f, 0x70f, 0x70f, 0x707, 0x707, 0x707};
-static const Glyph LETTER_N = {11, 15, 5, LETTER_N_ROWS};
+//   ####.....###
+//   #####....###
+//   #####....###
+//   ######...###
+//   ######...###
+//   ###.###..###
+//   ###.###..###
+//   ###..###.###
+//   ###..###.###
+//   ###...######
+//   ###...######
+//   ###....#####
+//   ###....#####
+//   ###.....####
+//   ###.....####
+static const uint32_t LETTER_N_ROWS[] = {0xf07, 0xf87, 0xf87, 0xfc7, 0xfc7, 0xee7, 0xee7, 0xe77, 0xe77, 0xe3f, 0xe3f, 0xe1f, 0xe1f, 0xe0f, 0xe0f};
+static const Glyph LETTER_N = {12, 15, 6, LETTER_N_ROWS};
 // LETTER_O
 //   ..#######..
 //   .#########.
-//   .#########.
+//   ###########
 //   ####...####
 //   ###.....###
 //   ###.....###
@@ -1128,10 +1130,10 @@ static const Glyph LETTER_N = {11, 15, 5, LETTER_N_ROWS};
 //   ###.....###
 //   ###.....###
 //   ####...####
-//   .#########.
+//   ###########
 //   .#########.
 //   ..#######..
-static const uint32_t LETTER_O_ROWS[] = {0x1fc, 0x3fe, 0x3fe, 0x78f, 0x707, 0x707, 0x707, 0x707, 0x707, 0x707, 0x707, 0x78f, 0x3fe, 0x3fe, 0x1fc};
+static const uint32_t LETTER_O_ROWS[] = {0x1fc, 0x3fe, 0x7ff, 0x78f, 0x707, 0x707, 0x707, 0x707, 0x707, 0x707, 0x707, 0x78f, 0x7ff, 0x3fe, 0x1fc};
 static const Glyph LETTER_O = {11, 15, 5, LETTER_O_ROWS};
 // LETTER_R
 //   #########..
@@ -1222,7 +1224,7 @@ static const Glyph LETTER_U = {11, 15, 5, LETTER_U_ROWS};
 //   .#####.#####.
 //   ..###...###..
 static const uint32_t LETTER_W_ROWS[] = {0x1c07, 0x1ce7, 0x1ce7, 0x1ce7, 0x1ce7, 0x1ce7, 0x1ce7, 0x1ce7, 0x1ce7, 0x1ce7, 0x1ce7, 0x1ce7, 0xffe, 0xfbe, 0x71c};
-static const Glyph LETTER_W = {13, 15, 6, LETTER_W_ROWS};
+static const Glyph LETTER_W = {13, 15, 7, LETTER_W_ROWS};
 
 // ICON_DST
 //   #####...#####.######
@@ -1233,7 +1235,7 @@ static const Glyph LETTER_W = {13, 15, 6, LETTER_W_ROWS};
 //   ##..##.....##...##..
 //   #####..#####....##..
 static const uint32_t ICON_DST_ROWS[] = {0xf8fbf, 0xcd80c, 0xcd80c, 0xccf0c, 0xcc18c, 0xcc18c, 0xf9f0c};
-static const Glyph ICON_DST = {20, 7, 17, ICON_DST_ROWS};
+static const Glyph ICON_DST = {20, 7, 18, ICON_DST_ROWS};
 // ICON_P
 //   ##########.
 //   ###########
@@ -1246,7 +1248,7 @@ static const Glyph ICON_DST = {20, 7, 17, ICON_DST_ROWS};
 //   ###........
 //   ###........
 static const uint32_t ICON_P_ROWS[] = {0x7fe, 0x7ff, 0x707, 0x707, 0x707, 0x7ff, 0x7fe, 0x700, 0x700, 0x700};
-static const Glyph ICON_P = {11, 10, 18, ICON_P_ROWS};
+static const Glyph ICON_P = {11, 10, 19, ICON_P_ROWS};
 // ICON_COLON_DOT
 //   .#####.
 //   #######
@@ -1261,7 +1263,7 @@ static const Glyph ICON_P = {11, 10, 18, ICON_P_ROWS};
 //   #######
 //   .#####.
 static const uint32_t ICON_COLON_DOT_ROWS[] = {0x3e, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x3e};
-static const Glyph ICON_COLON_DOT = {7, 12, 19, ICON_COLON_DOT_ROWS};
+static const Glyph ICON_COLON_DOT = {7, 12, 20, ICON_COLON_DOT_ROWS};
 // ICON_BT
 //   ..#..
 //   ..##.
@@ -1273,7 +1275,7 @@ static const Glyph ICON_COLON_DOT = {7, 12, 19, ICON_COLON_DOT_ROWS};
 //   ..##.
 //   ..#..
 static const uint32_t ICON_BT_ROWS[] = {0x4, 0x6, 0x15, 0xe, 0x4, 0xe, 0x15, 0x6, 0x4};
-static const Glyph ICON_BT = {5, 9, 20, ICON_BT_ROWS};
+static const Glyph ICON_BT = {5, 9, 21, ICON_BT_ROWS};
 // ICON_BUBBLE
 //   .###########.
 //   #############
@@ -1285,7 +1287,7 @@ static const Glyph ICON_BT = {5, 9, 20, ICON_BT_ROWS};
 //   ...##........
 //   ...#.........
 static const uint32_t ICON_BUBBLE_ROWS[] = {0xffe, 0x1fff, 0x1fff, 0x1fff, 0x1fff, 0x1fff, 0xffe, 0x300, 0x200};
-static const Glyph ICON_BUBBLE = {13, 9, 21, ICON_BUBBLE_ROWS};
+static const Glyph ICON_BUBBLE = {13, 9, 22, ICON_BUBBLE_ROWS};
 // ICON_SNZ
 //   .###.#...#.####
 //   ##...##..#....#
@@ -1295,7 +1297,7 @@ static const Glyph ICON_BUBBLE = {13, 9, 21, ICON_BUBBLE_ROWS};
 //   ..##.#...#.#...
 //   ###..#...#.####
 static const uint32_t ICON_SNZ_ROWS[] = {0x3a2f, 0x6321, 0x62a3, 0x32a6, 0x1a6c, 0x1a28, 0x722f};
-static const Glyph ICON_SNZ = {15, 7, 22, ICON_SNZ_ROWS};
+static const Glyph ICON_SNZ = {15, 7, 23, ICON_SNZ_ROWS};
 // ICON_SIGNAL
 //   ####...##..##..#.
 //   #####...##..#...#
@@ -1305,7 +1307,7 @@ static const Glyph ICON_SNZ = {15, 7, 22, ICON_SNZ_ROWS};
 //   #####...##..#...#
 //   ####...##..##..#.
 static const uint32_t ICON_SIGNAL_ROWS[] = {0x1e332, 0x1f191, 0x1f999, 0x1f999, 0x1f999, 0x1f191, 0x1e332};
-static const Glyph ICON_SIGNAL = {17, 7, 23, ICON_SIGNAL_ROWS};
+static const Glyph ICON_SIGNAL = {17, 7, 24, ICON_SIGNAL_ROWS};
 // ICON_MUTE
 //   ....##...
 //   #...#.#..
@@ -1318,7 +1320,7 @@ static const Glyph ICON_SIGNAL = {17, 7, 23, ICON_SIGNAL_ROWS};
 //   #####..#.
 //   .###.....
 static const uint32_t ICON_MUTE_ROWS[] = {0x18, 0x114, 0x92, 0x53, 0x23, 0x12, 0x8, 0xf4, 0x1f2, 0xe0};
-static const Glyph ICON_MUTE = {9, 10, 24, ICON_MUTE_ROWS};
+static const Glyph ICON_MUTE = {9, 10, 25, ICON_MUTE_ROWS};
 // ICON_VIB
 //   #.#.#.#.#.#.#
 //   .#.#.#.#.#.#.
@@ -1332,7 +1334,7 @@ static const Glyph ICON_MUTE = {9, 10, 24, ICON_MUTE_ROWS};
 //   .#.#.#.#.#.#.
 //   #.#.#.#.#.#.#
 static const uint32_t ICON_VIB_ROWS[] = {0x1555, 0xaaa, 0x0, 0x115e, 0x1151, 0x115e, 0xa51, 0x45e, 0x0, 0xaaa, 0x1555};
-static const Glyph ICON_VIB = {13, 11, 25, ICON_VIB_ROWS};
+static const Glyph ICON_VIB = {13, 11, 26, ICON_VIB_ROWS};
 // ICON_PLANE
 //   ....#........
 //   ....##.......
@@ -1345,7 +1347,7 @@ static const Glyph ICON_VIB = {13, 11, 25, ICON_VIB_ROWS};
 //   ....##.......
 //   ....#........
 static const uint32_t ICON_PLANE_ROWS[] = {0x100, 0x180, 0x10c0, 0x1860, 0x1fff, 0x1fff, 0x1860, 0x10c0, 0x180, 0x100};
-static const Glyph ICON_PLANE = {13, 10, 26, ICON_PLANE_ROWS};
+static const Glyph ICON_PLANE = {13, 10, 27, ICON_PLANE_ROWS};
 // ICON_ALERT
 //   ....####....
 //   ..########..
@@ -1360,7 +1362,7 @@ static const Glyph ICON_PLANE = {13, 10, 26, ICON_PLANE_ROWS};
 //   ..########..
 //   ....####....
 static const uint32_t ICON_ALERT_ROWS[] = {0xf0, 0x3fc, 0x79e, 0x79e, 0xf9f, 0xf9f, 0xf9f, 0xfff, 0xf9f, 0x79e, 0x3fc, 0xf0};
-static const Glyph ICON_ALERT = {12, 12, 27, ICON_ALERT_ROWS};
+static const Glyph ICON_ALERT = {12, 12, 28, ICON_ALERT_ROWS};
 // ICON_LT
 //   #....#####
 //   #....#####
@@ -1370,7 +1372,7 @@ static const Glyph ICON_ALERT = {12, 12, 27, ICON_ALERT_ROWS};
 //   #####..#..
 //   #####..#..
 static const uint32_t ICON_LT_ROWS[] = {0x21f, 0x21f, 0x204, 0x204, 0x204, 0x3e4, 0x3e4};
-static const Glyph ICON_LT = {10, 7, 28, ICON_LT_ROWS};
+static const Glyph ICON_LT = {10, 7, 29, ICON_LT_ROWS};
 
 // LOGO_P
 //   #######.
@@ -1382,7 +1384,7 @@ static const Glyph ICON_LT = {10, 7, 28, ICON_LT_ROWS};
 //   ##......
 //   ##......
 static const uint32_t LOGO_P_ROWS[] = {0xfe, 0xff, 0xc3, 0xc3, 0xff, 0xfe, 0xc0, 0xc0};
-static const Glyph LOGO_P = {8, 8, 7, LOGO_P_ROWS};
+static const Glyph LOGO_P = {8, 8, 8, LOGO_P_ROWS};
 // LOGO_E
 //   ########
 //   ########
@@ -1393,7 +1395,7 @@ static const Glyph LOGO_P = {8, 8, 7, LOGO_P_ROWS};
 //   ########
 //   ########
 static const uint32_t LOGO_E_ROWS[] = {0xff, 0xff, 0xc0, 0xfe, 0xfe, 0xc0, 0xff, 0xff};
-static const Glyph LOGO_E = {8, 8, 7, LOGO_E_ROWS};
+static const Glyph LOGO_E = {8, 8, 8, LOGO_E_ROWS};
 // LOGO_B
 //   #######.
 //   ########
@@ -1404,7 +1406,7 @@ static const Glyph LOGO_E = {8, 8, 7, LOGO_E_ROWS};
 //   ########
 //   #######.
 static const uint32_t LOGO_B_ROWS[] = {0xfe, 0xff, 0xc3, 0xfe, 0xff, 0xc3, 0xff, 0xfe};
-static const Glyph LOGO_B = {8, 8, 7, LOGO_B_ROWS};
+static const Glyph LOGO_B = {8, 8, 8, LOGO_B_ROWS};
 // LOGO_L
 //   ##......
 //   ##......
@@ -1415,7 +1417,7 @@ static const Glyph LOGO_B = {8, 8, 7, LOGO_B_ROWS};
 //   ########
 //   ########
 static const uint32_t LOGO_L_ROWS[] = {0xc0, 0xc0, 0xc0, 0xc0, 0xc0, 0xc0, 0xff, 0xff};
-static const Glyph LOGO_L = {8, 8, 7, LOGO_L_ROWS};
+static const Glyph LOGO_L = {8, 8, 8, LOGO_L_ROWS};
 // WR_W
 //   ##...##...##
 //   ##..####..##
@@ -1424,7 +1426,7 @@ static const Glyph LOGO_L = {8, 8, 7, LOGO_L_ROWS};
 //   .####..####.
 //   ..##....##..
 static const uint32_t WR_W_ROWS[] = {0xc63, 0xcf3, 0xcf3, 0x696, 0x79e, 0x30c};
-static const Glyph WR_W = {12, 6, 9, WR_W_ROWS};
+static const Glyph WR_W = {12, 6, 10, WR_W_ROWS};
 // WR_R
 //   #######.
 //   ##....##
@@ -1433,7 +1435,7 @@ static const Glyph WR_W = {12, 6, 9, WR_W_ROWS};
 //   ##...##.
 //   ##....##
 static const uint32_t WR_R_ROWS[] = {0xfe, 0xc3, 0xc3, 0xfe, 0xc6, 0xc3};
-static const Glyph WR_R = {8, 6, 8, WR_R_ROWS};
+static const Glyph WR_R = {8, 6, 9, WR_R_ROWS};
 // WR_3
 //   #######.
 //   ......##
@@ -1442,7 +1444,7 @@ static const Glyph WR_R = {8, 6, 8, WR_R_ROWS};
 //   ##....##
 //   .######.
 static const uint32_t WR_3_ROWS[] = {0xfe, 0x3, 0x3e, 0x3, 0xc3, 0x7e};
-static const Glyph WR_3 = {8, 6, 8, WR_3_ROWS};
+static const Glyph WR_3 = {8, 6, 9, WR_3_ROWS};
 // WR_0
 //   .######.
 //   ###..###
@@ -1451,7 +1453,7 @@ static const Glyph WR_3 = {8, 6, 8, WR_3_ROWS};
 //   ##....##
 //   .######.
 static const uint32_t WR_0_ROWS[] = {0x7e, 0xe7, 0xc3, 0xc3, 0xc3, 0x7e};
-static const Glyph WR_0 = {8, 6, 8, WR_0_ROWS};
+static const Glyph WR_0 = {8, 6, 9, WR_0_ROWS};
 // WR_M
 //   ..##....##..
 //   .####..####.
@@ -1460,7 +1462,7 @@ static const Glyph WR_0 = {8, 6, 8, WR_0_ROWS};
 //   ##..####..##
 //   ##...##...##
 static const uint32_t WR_M_ROWS[] = {0x30c, 0x79e, 0x696, 0xcf3, 0xcf3, 0xc63};
-static const Glyph WR_M = {12, 6, 9, WR_M_ROWS};
+static const Glyph WR_M = {12, 6, 10, WR_M_ROWS};
 
 // SEC_MINUS
 //   ................
@@ -1494,7 +1496,7 @@ static const Glyph SEC_MINUS = {16, 23, 1, SEC_MINUS_ROWS};
 //   #..#
 //   .##.
 static const uint32_t DEGREE_ROWS[] = {0x6, 0x9, 0x9, 0x6};
-static const Glyph DEGREE = {4, 4, 12, DEGREE_ROWS};
+static const Glyph DEGREE = {4, 4, 13, DEGREE_ROWS};
 // TZ_A
 //   .####.
 //   ##..##
@@ -1504,7 +1506,7 @@ static const Glyph DEGREE = {4, 4, 12, DEGREE_ROWS};
 //   ##..##
 //   ##..##
 static const uint32_t TZ_A_ROWS[] = {0x1e, 0x33, 0x33, 0x3f, 0x33, 0x33, 0x33};
-static const Glyph TZ_A = {6, 7, 10, TZ_A_ROWS};
+static const Glyph TZ_A = {6, 7, 11, TZ_A_ROWS};
 // TZ_B
 //   #####.
 //   ##..##
@@ -1514,7 +1516,7 @@ static const Glyph TZ_A = {6, 7, 10, TZ_A_ROWS};
 //   ##..##
 //   #####.
 static const uint32_t TZ_B_ROWS[] = {0x3e, 0x33, 0x33, 0x3e, 0x33, 0x33, 0x3e};
-static const Glyph TZ_B = {6, 7, 10, TZ_B_ROWS};
+static const Glyph TZ_B = {6, 7, 11, TZ_B_ROWS};
 // TZ_C
 //   .####.
 //   ##..##
@@ -1524,7 +1526,7 @@ static const Glyph TZ_B = {6, 7, 10, TZ_B_ROWS};
 //   ##..##
 //   .####.
 static const uint32_t TZ_C_ROWS[] = {0x1e, 0x33, 0x30, 0x30, 0x30, 0x33, 0x1e};
-static const Glyph TZ_C = {6, 7, 10, TZ_C_ROWS};
+static const Glyph TZ_C = {6, 7, 11, TZ_C_ROWS};
 // TZ_D
 //   #####.
 //   ##..##
@@ -1534,7 +1536,7 @@ static const Glyph TZ_C = {6, 7, 10, TZ_C_ROWS};
 //   ##..##
 //   #####.
 static const uint32_t TZ_D_ROWS[] = {0x3e, 0x33, 0x33, 0x33, 0x33, 0x33, 0x3e};
-static const Glyph TZ_D = {6, 7, 10, TZ_D_ROWS};
+static const Glyph TZ_D = {6, 7, 11, TZ_D_ROWS};
 // TZ_E
 //   ######
 //   ##....
@@ -1544,7 +1546,7 @@ static const Glyph TZ_D = {6, 7, 10, TZ_D_ROWS};
 //   ##....
 //   ######
 static const uint32_t TZ_E_ROWS[] = {0x3f, 0x30, 0x30, 0x3e, 0x30, 0x30, 0x3f};
-static const Glyph TZ_E = {6, 7, 10, TZ_E_ROWS};
+static const Glyph TZ_E = {6, 7, 11, TZ_E_ROWS};
 // TZ_F
 //   ######
 //   ##....
@@ -1554,7 +1556,7 @@ static const Glyph TZ_E = {6, 7, 10, TZ_E_ROWS};
 //   ##....
 //   ##....
 static const uint32_t TZ_F_ROWS[] = {0x3f, 0x30, 0x30, 0x3e, 0x30, 0x30, 0x30};
-static const Glyph TZ_F = {6, 7, 10, TZ_F_ROWS};
+static const Glyph TZ_F = {6, 7, 11, TZ_F_ROWS};
 // TZ_G
 //   .####.
 //   ##..##
@@ -1564,7 +1566,7 @@ static const Glyph TZ_F = {6, 7, 10, TZ_F_ROWS};
 //   ##..##
 //   .####.
 static const uint32_t TZ_G_ROWS[] = {0x1e, 0x33, 0x30, 0x37, 0x33, 0x33, 0x1e};
-static const Glyph TZ_G = {6, 7, 10, TZ_G_ROWS};
+static const Glyph TZ_G = {6, 7, 11, TZ_G_ROWS};
 // TZ_H
 //   ##..##
 //   ##..##
@@ -1574,7 +1576,7 @@ static const Glyph TZ_G = {6, 7, 10, TZ_G_ROWS};
 //   ##..##
 //   ##..##
 static const uint32_t TZ_H_ROWS[] = {0x33, 0x33, 0x33, 0x3f, 0x33, 0x33, 0x33};
-static const Glyph TZ_H = {6, 7, 10, TZ_H_ROWS};
+static const Glyph TZ_H = {6, 7, 11, TZ_H_ROWS};
 // TZ_I
 //   ######
 //   ..##..
@@ -1584,7 +1586,7 @@ static const Glyph TZ_H = {6, 7, 10, TZ_H_ROWS};
 //   ..##..
 //   ######
 static const uint32_t TZ_I_ROWS[] = {0x3f, 0xc, 0xc, 0xc, 0xc, 0xc, 0x3f};
-static const Glyph TZ_I = {6, 7, 10, TZ_I_ROWS};
+static const Glyph TZ_I = {6, 7, 11, TZ_I_ROWS};
 // TZ_J
 //   ....##
 //   ....##
@@ -1594,7 +1596,7 @@ static const Glyph TZ_I = {6, 7, 10, TZ_I_ROWS};
 //   ##..##
 //   .####.
 static const uint32_t TZ_J_ROWS[] = {0x3, 0x3, 0x3, 0x3, 0x33, 0x33, 0x1e};
-static const Glyph TZ_J = {6, 7, 10, TZ_J_ROWS};
+static const Glyph TZ_J = {6, 7, 11, TZ_J_ROWS};
 // TZ_K
 //   ##..##
 //   ##.##.
@@ -1604,7 +1606,7 @@ static const Glyph TZ_J = {6, 7, 10, TZ_J_ROWS};
 //   ##.##.
 //   ##..##
 static const uint32_t TZ_K_ROWS[] = {0x33, 0x36, 0x3c, 0x38, 0x3c, 0x36, 0x33};
-static const Glyph TZ_K = {6, 7, 10, TZ_K_ROWS};
+static const Glyph TZ_K = {6, 7, 11, TZ_K_ROWS};
 // TZ_L
 //   ##....
 //   ##....
@@ -1614,7 +1616,7 @@ static const Glyph TZ_K = {6, 7, 10, TZ_K_ROWS};
 //   ##....
 //   ######
 static const uint32_t TZ_L_ROWS[] = {0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x3f};
-static const Glyph TZ_L = {6, 7, 10, TZ_L_ROWS};
+static const Glyph TZ_L = {6, 7, 11, TZ_L_ROWS};
 // TZ_M
 //   ##...##
 //   ###.###
@@ -1624,7 +1626,7 @@ static const Glyph TZ_L = {6, 7, 10, TZ_L_ROWS};
 //   ##...##
 //   ##...##
 static const uint32_t TZ_M_ROWS[] = {0x63, 0x77, 0x6b, 0x6b, 0x63, 0x63, 0x63};
-static const Glyph TZ_M = {7, 7, 11, TZ_M_ROWS};
+static const Glyph TZ_M = {7, 7, 12, TZ_M_ROWS};
 // TZ_N
 //   ##..##
 //   ###.##
@@ -1634,7 +1636,7 @@ static const Glyph TZ_M = {7, 7, 11, TZ_M_ROWS};
 //   ##..##
 //   ##..##
 static const uint32_t TZ_N_ROWS[] = {0x33, 0x3b, 0x3f, 0x37, 0x33, 0x33, 0x33};
-static const Glyph TZ_N = {6, 7, 10, TZ_N_ROWS};
+static const Glyph TZ_N = {6, 7, 11, TZ_N_ROWS};
 // TZ_O
 //   .####.
 //   ##..##
@@ -1644,7 +1646,7 @@ static const Glyph TZ_N = {6, 7, 10, TZ_N_ROWS};
 //   ##..##
 //   .####.
 static const uint32_t TZ_O_ROWS[] = {0x1e, 0x33, 0x33, 0x33, 0x33, 0x33, 0x1e};
-static const Glyph TZ_O = {6, 7, 10, TZ_O_ROWS};
+static const Glyph TZ_O = {6, 7, 11, TZ_O_ROWS};
 // TZ_P
 //   #####.
 //   ##..##
@@ -1654,7 +1656,7 @@ static const Glyph TZ_O = {6, 7, 10, TZ_O_ROWS};
 //   ##....
 //   ##....
 static const uint32_t TZ_P_ROWS[] = {0x3e, 0x33, 0x33, 0x3e, 0x30, 0x30, 0x30};
-static const Glyph TZ_P = {6, 7, 10, TZ_P_ROWS};
+static const Glyph TZ_P = {6, 7, 11, TZ_P_ROWS};
 // TZ_Q
 //   .####.
 //   ##..##
@@ -1664,7 +1666,7 @@ static const Glyph TZ_P = {6, 7, 10, TZ_P_ROWS};
 //   ##..##
 //   .###.#
 static const uint32_t TZ_Q_ROWS[] = {0x1e, 0x33, 0x33, 0x33, 0x37, 0x33, 0x1d};
-static const Glyph TZ_Q = {6, 7, 10, TZ_Q_ROWS};
+static const Glyph TZ_Q = {6, 7, 11, TZ_Q_ROWS};
 // TZ_R
 //   #####.
 //   ##..##
@@ -1674,7 +1676,7 @@ static const Glyph TZ_Q = {6, 7, 10, TZ_Q_ROWS};
 //   ##..##
 //   ##..##
 static const uint32_t TZ_R_ROWS[] = {0x3e, 0x33, 0x33, 0x3e, 0x36, 0x33, 0x33};
-static const Glyph TZ_R = {6, 7, 10, TZ_R_ROWS};
+static const Glyph TZ_R = {6, 7, 11, TZ_R_ROWS};
 // TZ_S
 //   .#####
 //   ##....
@@ -1684,7 +1686,7 @@ static const Glyph TZ_R = {6, 7, 10, TZ_R_ROWS};
 //   ....##
 //   #####.
 static const uint32_t TZ_S_ROWS[] = {0x1f, 0x30, 0x30, 0x1e, 0x3, 0x3, 0x3e};
-static const Glyph TZ_S = {6, 7, 10, TZ_S_ROWS};
+static const Glyph TZ_S = {6, 7, 11, TZ_S_ROWS};
 // TZ_T
 //   ######
 //   ..##..
@@ -1694,7 +1696,7 @@ static const Glyph TZ_S = {6, 7, 10, TZ_S_ROWS};
 //   ..##..
 //   ..##..
 static const uint32_t TZ_T_ROWS[] = {0x3f, 0xc, 0xc, 0xc, 0xc, 0xc, 0xc};
-static const Glyph TZ_T = {6, 7, 10, TZ_T_ROWS};
+static const Glyph TZ_T = {6, 7, 11, TZ_T_ROWS};
 // TZ_U
 //   ##..##
 //   ##..##
@@ -1704,7 +1706,7 @@ static const Glyph TZ_T = {6, 7, 10, TZ_T_ROWS};
 //   ##..##
 //   .####.
 static const uint32_t TZ_U_ROWS[] = {0x33, 0x33, 0x33, 0x33, 0x33, 0x33, 0x1e};
-static const Glyph TZ_U = {6, 7, 10, TZ_U_ROWS};
+static const Glyph TZ_U = {6, 7, 11, TZ_U_ROWS};
 // TZ_V
 //   ##..##
 //   ##..##
@@ -1714,7 +1716,7 @@ static const Glyph TZ_U = {6, 7, 10, TZ_U_ROWS};
 //   .####.
 //   ..##..
 static const uint32_t TZ_V_ROWS[] = {0x33, 0x33, 0x33, 0x33, 0x1e, 0x1e, 0xc};
-static const Glyph TZ_V = {6, 7, 10, TZ_V_ROWS};
+static const Glyph TZ_V = {6, 7, 11, TZ_V_ROWS};
 // TZ_W
 //   ##...##
 //   ##...##
@@ -1724,7 +1726,7 @@ static const Glyph TZ_V = {6, 7, 10, TZ_V_ROWS};
 //   ###.###
 //   ##...##
 static const uint32_t TZ_W_ROWS[] = {0x63, 0x63, 0x63, 0x6b, 0x6b, 0x77, 0x63};
-static const Glyph TZ_W = {7, 7, 11, TZ_W_ROWS};
+static const Glyph TZ_W = {7, 7, 12, TZ_W_ROWS};
 // TZ_X
 //   ##..##
 //   ##..##
@@ -1734,7 +1736,7 @@ static const Glyph TZ_W = {7, 7, 11, TZ_W_ROWS};
 //   ##..##
 //   ##..##
 static const uint32_t TZ_X_ROWS[] = {0x33, 0x33, 0x1e, 0xc, 0x1e, 0x33, 0x33};
-static const Glyph TZ_X = {6, 7, 10, TZ_X_ROWS};
+static const Glyph TZ_X = {6, 7, 11, TZ_X_ROWS};
 // TZ_Y
 //   ##..##
 //   ##..##
@@ -1744,7 +1746,7 @@ static const Glyph TZ_X = {6, 7, 10, TZ_X_ROWS};
 //   ..##..
 //   ..##..
 static const uint32_t TZ_Y_ROWS[] = {0x33, 0x33, 0x1e, 0xc, 0xc, 0xc, 0xc};
-static const Glyph TZ_Y = {6, 7, 10, TZ_Y_ROWS};
+static const Glyph TZ_Y = {6, 7, 11, TZ_Y_ROWS};
 // TZ_Z
 //   ######
 //   ....##
@@ -1754,7 +1756,7 @@ static const Glyph TZ_Y = {6, 7, 10, TZ_Y_ROWS};
 //   ##....
 //   ######
 static const uint32_t TZ_Z_ROWS[] = {0x3f, 0x3, 0x6, 0xc, 0x18, 0x30, 0x3f};
-static const Glyph TZ_Z = {6, 7, 10, TZ_Z_ROWS};
+static const Glyph TZ_Z = {6, 7, 11, TZ_Z_ROWS};
 // TZ_0
 //   .####.
 //   ##..##
@@ -1764,7 +1766,7 @@ static const Glyph TZ_Z = {6, 7, 10, TZ_Z_ROWS};
 //   ##..##
 //   .####.
 static const uint32_t TZ_0_ROWS[] = {0x1e, 0x33, 0x33, 0x33, 0x33, 0x33, 0x1e};
-static const Glyph TZ_0 = {6, 7, 10, TZ_0_ROWS};
+static const Glyph TZ_0 = {6, 7, 11, TZ_0_ROWS};
 // TZ_1
 //   ..##..
 //   .###..
@@ -1774,7 +1776,7 @@ static const Glyph TZ_0 = {6, 7, 10, TZ_0_ROWS};
 //   ..##..
 //   .####.
 static const uint32_t TZ_1_ROWS[] = {0xc, 0x1c, 0xc, 0xc, 0xc, 0xc, 0x1e};
-static const Glyph TZ_1 = {6, 7, 10, TZ_1_ROWS};
+static const Glyph TZ_1 = {6, 7, 11, TZ_1_ROWS};
 // TZ_2
 //   .####.
 //   ##..##
@@ -1784,7 +1786,7 @@ static const Glyph TZ_1 = {6, 7, 10, TZ_1_ROWS};
 //   .##...
 //   ######
 static const uint32_t TZ_2_ROWS[] = {0x1e, 0x33, 0x3, 0x6, 0xc, 0x18, 0x3f};
-static const Glyph TZ_2 = {6, 7, 10, TZ_2_ROWS};
+static const Glyph TZ_2 = {6, 7, 11, TZ_2_ROWS};
 // TZ_3
 //   #####.
 //   ....##
@@ -1794,7 +1796,7 @@ static const Glyph TZ_2 = {6, 7, 10, TZ_2_ROWS};
 //   ....##
 //   #####.
 static const uint32_t TZ_3_ROWS[] = {0x3e, 0x3, 0x3, 0x1e, 0x3, 0x3, 0x3e};
-static const Glyph TZ_3 = {6, 7, 10, TZ_3_ROWS};
+static const Glyph TZ_3 = {6, 7, 11, TZ_3_ROWS};
 // TZ_4
 //   ...##.
 //   ..###.
@@ -1804,7 +1806,7 @@ static const Glyph TZ_3 = {6, 7, 10, TZ_3_ROWS};
 //   ...##.
 //   ...##.
 static const uint32_t TZ_4_ROWS[] = {0x6, 0xe, 0x1e, 0x36, 0x3f, 0x6, 0x6};
-static const Glyph TZ_4 = {6, 7, 10, TZ_4_ROWS};
+static const Glyph TZ_4 = {6, 7, 11, TZ_4_ROWS};
 // TZ_5
 //   ######
 //   ##....
@@ -1814,7 +1816,7 @@ static const Glyph TZ_4 = {6, 7, 10, TZ_4_ROWS};
 //   ##..##
 //   .####.
 static const uint32_t TZ_5_ROWS[] = {0x3f, 0x30, 0x3e, 0x3, 0x3, 0x33, 0x1e};
-static const Glyph TZ_5 = {6, 7, 10, TZ_5_ROWS};
+static const Glyph TZ_5 = {6, 7, 11, TZ_5_ROWS};
 // TZ_6
 //   .####.
 //   ##....
@@ -1824,7 +1826,7 @@ static const Glyph TZ_5 = {6, 7, 10, TZ_5_ROWS};
 //   ##..##
 //   .####.
 static const uint32_t TZ_6_ROWS[] = {0x1e, 0x30, 0x30, 0x3e, 0x33, 0x33, 0x1e};
-static const Glyph TZ_6 = {6, 7, 10, TZ_6_ROWS};
+static const Glyph TZ_6 = {6, 7, 11, TZ_6_ROWS};
 // TZ_7
 //   ######
 //   ....##
@@ -1834,7 +1836,7 @@ static const Glyph TZ_6 = {6, 7, 10, TZ_6_ROWS};
 //   ..##..
 //   ..##..
 static const uint32_t TZ_7_ROWS[] = {0x3f, 0x3, 0x6, 0xc, 0xc, 0xc, 0xc};
-static const Glyph TZ_7 = {6, 7, 10, TZ_7_ROWS};
+static const Glyph TZ_7 = {6, 7, 11, TZ_7_ROWS};
 // TZ_8
 //   .####.
 //   ##..##
@@ -1844,7 +1846,7 @@ static const Glyph TZ_7 = {6, 7, 10, TZ_7_ROWS};
 //   ##..##
 //   .####.
 static const uint32_t TZ_8_ROWS[] = {0x1e, 0x33, 0x33, 0x1e, 0x33, 0x33, 0x1e};
-static const Glyph TZ_8 = {6, 7, 10, TZ_8_ROWS};
+static const Glyph TZ_8 = {6, 7, 11, TZ_8_ROWS};
 // TZ_9
 //   .####.
 //   ##..##
@@ -1854,7 +1856,7 @@ static const Glyph TZ_8 = {6, 7, 10, TZ_8_ROWS};
 //   ....##
 //   .####.
 static const uint32_t TZ_9_ROWS[] = {0x1e, 0x33, 0x33, 0x1f, 0x3, 0x3, 0x1e};
-static const Glyph TZ_9 = {6, 7, 10, TZ_9_ROWS};
+static const Glyph TZ_9 = {6, 7, 11, TZ_9_ROWS};
 // TZ_PLUS
 //   ......
 //   ..##..
@@ -1864,7 +1866,7 @@ static const Glyph TZ_9 = {6, 7, 10, TZ_9_ROWS};
 //   ..##..
 //   ......
 static const uint32_t TZ_PLUS_ROWS[] = {0x0, 0xc, 0xc, 0x3f, 0xc, 0xc, 0x0};
-static const Glyph TZ_PLUS = {6, 7, 10, TZ_PLUS_ROWS};
+static const Glyph TZ_PLUS = {6, 7, 11, TZ_PLUS_ROWS};
 // TZ_MINUS
 //   ......
 //   ......
@@ -1874,7 +1876,7 @@ static const Glyph TZ_PLUS = {6, 7, 10, TZ_PLUS_ROWS};
 //   ......
 //   ......
 static const uint32_t TZ_MINUS_ROWS[] = {0x0, 0x0, 0x0, 0x3f, 0x0, 0x0, 0x0};
-static const Glyph TZ_MINUS = {6, 7, 10, TZ_MINUS_ROWS};
+static const Glyph TZ_MINUS = {6, 7, 11, TZ_MINUS_ROWS};
 // LABEL_REV
 //   ...#..
 //   ..##..
@@ -1904,7 +1906,7 @@ static const Glyph TZ_MINUS = {6, 7, 10, TZ_MINUS_ROWS};
 //   ######
 //   ######
 static const uint32_t LABEL_REV_ROWS[] = {0x4, 0xc, 0x1c, 0x1c, 0xc, 0x4, 0x0, 0x38, 0x3e, 0x7, 0x7, 0x3e, 0x38, 0x0, 0x21, 0x25, 0x25, 0x25, 0x3f, 0x3f, 0x0, 0x19, 0x3f, 0x26, 0x24, 0x3f, 0x3f};
-static const Glyph LABEL_REV = {6, 27, 13, LABEL_REV_ROWS};
+static const Glyph LABEL_REV = {6, 27, 14, LABEL_REV_ROWS};
 // LABEL_UP
 //   ..#...
 //   ..##..
@@ -1927,7 +1929,7 @@ static const Glyph LABEL_REV = {6, 27, 13, LABEL_REV_ROWS};
 //   ..####
 //   ...##.
 static const uint32_t LABEL_UP_ROWS[] = {0x8, 0xc, 0xe, 0xe, 0xc, 0x8, 0x0, 0x1f, 0x3f, 0x20, 0x20, 0x3f, 0x1f, 0x0, 0x3f, 0x3f, 0x9, 0x9, 0xf, 0x6};
-static const Glyph LABEL_UP = {6, 20, 14, LABEL_UP_ROWS};
+static const Glyph LABEL_UP = {6, 20, 15, LABEL_UP_ROWS};
 // LABEL_RUN
 //   ..#...
 //   ..##..
@@ -1936,7 +1938,7 @@ static const Glyph LABEL_UP = {6, 20, 14, LABEL_UP_ROWS};
 //   ..##..
 //   ..#...
 static const uint32_t LABEL_RUN_ROWS[] = {0x8, 0xc, 0xe, 0xe, 0xc, 0x8};
-static const Glyph LABEL_RUN = {6, 6, 15, LABEL_RUN_ROWS};
+static const Glyph LABEL_RUN = {6, 6, 16, LABEL_RUN_ROWS};
 // LABEL_DOWN
 //   ######
 //   ######
@@ -1975,7 +1977,7 @@ static const Glyph LABEL_RUN = {6, 6, 15, LABEL_RUN_ROWS};
 //   ..##..
 //   ..#...
 static const uint32_t LABEL_DOWN_ROWS[] = {0x3f, 0x3f, 0x21, 0x21, 0x3f, 0x1e, 0x0, 0x1e, 0x3f, 0x21, 0x21, 0x3f, 0x1e, 0x0, 0xf, 0x3f, 0x30, 0x1c, 0x1c, 0x30, 0x3f, 0xf, 0x0, 0x3f, 0x3f, 0x6, 0xc, 0x3f, 0x3f, 0x0, 0x8, 0xc, 0xe, 0xe, 0xc, 0x8};
-static const Glyph LABEL_DOWN = {6, 36, 16, LABEL_DOWN_ROWS};
+static const Glyph LABEL_DOWN = {6, 36, 17, LABEL_DOWN_ROWS};
 
 static const Glyph *tz_glyph(char c) {
   switch (c) {

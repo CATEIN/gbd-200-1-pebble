@@ -59,6 +59,18 @@ enum {
 #define LOW_BATTERY_PERCENT 20
 #define IND_DEFAULT (IND_SIGNAL | IND_MUTE | IND_VIB)
 
+// The 144-pixel-wide screens (Pebble 2 / 2 Duo) are just narrower than the
+// face's 147 dots, so there it's always drawn 1:1, right-aligned, with the
+// only things in the 3 spare dots - the P and an hour-tens digit - nudged
+// right. Their pixels are close to the real watch's dot size anyway.
+#if PBL_DISPLAY_WIDTH < 160
+#define NARROW_SCREEN 1
+#define NARROW_SHIFT 3
+#else
+#define NARROW_SCREEN 0
+#define NARROW_SHIFT 0
+#endif
+
 // The face's bounds on the real LCD, in dots.
 #define FACE_X 12
 #define FACE_Y 8
@@ -91,6 +103,10 @@ static int16_t s_ymap[NUM_FAMILIES][MAX_GLYPH_H + 1];
 
 // Pixels per dot for the current mode, as num / den.
 static void scale_ratio(int *num, int *den) {
+  if (NARROW_SCREEN) {
+    *num = *den = 1;
+    return;
+  }
   switch (s_scale_mode) {
     case SCALE_ORIGINAL: *num = 1; *den = 1; break;
     case SCALE_REAL: *num = REAL_SIZE_PERCENT; *den = 100; break;
@@ -120,6 +136,7 @@ static void build_axis_map(int16_t *map, int n, uint64_t mask) {
 }
 
 static int scale_index(void) {
+  if (NARROW_SCREEN) return 0;
   switch (s_scale_mode) {
     case SCALE_ORIGINAL: return 0;
     case SCALE_REAL: return REAL_SIZE_PERCENT - SCALE_INDEX_MIN_PERCENT;
@@ -130,7 +147,7 @@ static int scale_index(void) {
 
 static void update_mapping(GRect bounds) {
   int w = scale(FACE_W), h = scale(FACE_H);
-  s_off_x = (bounds.size.w - w) / 2;
+  s_off_x = NARROW_SCREEN ? bounds.size.w - w : (bounds.size.w - w) / 2;
   s_off_y = (bounds.size.h - h) / 2;
   if (s_mapped_mode == s_scale_mode && s_mapped_percent == s_scale_percent) return;
   int si = scale_index();
@@ -206,7 +223,7 @@ static void draw_button_labels(GContext *ctx, GRect bounds) {
   draw_glyph_px(ctx, &LABEL_REV, LABEL_EDGE, BUTTON_TOP_Y - LABEL_REV.h / 2);
   draw_glyph_px(ctx, &LABEL_UP, right - LABEL_UP.w, BUTTON_TOP_Y - LABEL_UP.h / 2);
   draw_glyph_px(ctx, &LABEL_DOWN, right - LABEL_DOWN.w, BUTTON_BOTTOM_Y - LABEL_DOWN.h / 2);
-  graphics_context_set_fill_color(ctx, GColorOrange);
+  graphics_context_set_fill_color(ctx, PBL_IF_COLOR_ELSE(GColorOrange, GColorWhite));
   draw_glyph_px(ctx, &LABEL_RUN, right - LABEL_RUN.w, BUTTON_MIDDLE_Y - LABEL_RUN.h / 2);
   graphics_context_set_fill_color(ctx, GColorWhite);
 }
@@ -258,13 +275,22 @@ static void draw_case_text(GContext *ctx, GRect bounds) {
 
 // The palette's darkest gray is #555555, so darker shades mix it with black
 // in a fine pattern: every pixel (solid), every other one (~#2A2A2A), or one
-// in four (~#151515).
+// in four (~#151515). Black-and-white screens mix in white instead, which is
+// much brighter, so they use 1 pixel in 4, 8 or 16.
 static bool shade_pixel(int x, int y) {
+#if PBL_COLOR
   switch (s_panel_shade) {
     case SHADE_SOLID: return true;
     case SHADE_DARKER: return ((x + y) & 1) == 0;
     default: return (x & 1) == 0 && (y & 1) == 0;
   }
+#else
+  switch (s_panel_shade) {
+    case SHADE_SOLID: return (x & 1) == 0 && (y & 1) == 0;
+    case SHADE_DARKER: return (y & 1) == 0 && (x & 3) == (y & 2);         // 1 in 8, staggered
+    default: return (y & 3) == 0 && (x & 7) == ((y & 4) ? 4 : 0);  // 1 in 16, staggered
+  }
+#endif
 }
 
 // Fills the background straight into the frame buffer: black, with the real
@@ -282,7 +308,9 @@ static void draw_background(GContext *ctx, GRect bounds) {
   }
   GBitmap *fb = graphics_capture_frame_buffer(ctx);
   if (!fb) return;
+#if PBL_COLOR
   uint8_t dark = GColorDarkGray.argb, black = GColorBlack.argb;
+#endif
   for (int y = 0; y < bounds.size.h; y++) {
     GBitmapDataRowInfo row = gbitmap_get_data_row_info(fb, y);
     // The panel's span on this row: where its edges cross the pixel centers.
@@ -300,7 +328,14 @@ static void draw_background(GContext *ctx, GRect bounds) {
       int32_t xc = x * 16 + 8;
       bool inside = xc >= left && xc < right;
       bool gray = (s_panel_mode == PANEL_GRAY && inside) || (s_panel_mode == PANEL_INVERTED && !inside);
-      row.data[x] = gray && shade_pixel(x, y) ? dark : black;
+      bool lit = gray && shade_pixel(x, y);
+#if PBL_COLOR
+      row.data[x] = lit ? dark : black;
+#else
+      // 1 bit per pixel, least significant bit first.
+      if (lit) row.data[x / 8] |= 1 << (x % 8);
+      else row.data[x / 8] &= ~(1 << (x % 8));
+#endif
     }
   }
   graphics_release_frame_buffer(ctx, fb);
@@ -340,11 +375,11 @@ static void canvas_update(Layer *layer, GContext *ctx) {
   // Time. 12-hour mode shows a P before afternoon hours, like the watch.
   int hour = t->tm_hour;
   if (!clock_is_24h_style()) {
-    if (hour >= 12) draw_glyph(ctx, &ICON_P, 12, 50);
+    if (hour >= 12) draw_glyph(ctx, &ICON_P, 12 + NARROW_SHIFT, 50);
     hour %= 12;
     if (hour == 0) hour = 12;
   }
-  if (hour >= 10) draw_glyph(ctx, &BIG_DIGITS[hour / 10], 12, 39);
+  if (hour >= 10) draw_glyph(ctx, &BIG_DIGITS[hour / 10], 12 + NARROW_SHIFT, 39);
   draw_glyph(ctx, &BIG_DIGITS[hour % 10], 47, 39);
   draw_glyph(ctx, &ICON_COLON_DOT, 82, 44);
   draw_glyph(ctx, &ICON_COLON_DOT, 82, 67);
@@ -372,6 +407,7 @@ static void canvas_update(Layer *layer, GContext *ctx) {
   // Bottom indicator strip.
   if (s_indicators & IND_SNZ) draw_glyph(ctx, &ICON_SNZ, 44, 120);
   time_t next_alarm;
+  (void)next_alarm;  // unused where the SDK stubs the alarm service out (diorite)
   if ((s_indicators & IND_SIGNAL) && alarm_service_peek_next(&next_alarm)) {
     draw_glyph(ctx, &ICON_SIGNAL, 65, 120);
   }

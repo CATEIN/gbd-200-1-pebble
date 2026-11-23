@@ -1,7 +1,7 @@
 {
   "name": "gbd200",
   "author": "CATEIN",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "keywords": [
     "pebble-app"
   ],
@@ -16,7 +16,9 @@
       "configurable"
     ],
     "targetPlatforms": [
-      "emery"
+      "emery",
+      "flint",
+      "diorite"
     ],
     "watchapp": {
       "watchface": true

@@ -1,4 +1,4 @@
-GBD-200-1 — a G-SHOCK-style digital display, dot for dot, for Pebble Time 2
+GBD-200-1 — a G-SHOCK-style digital display, dot for dot
 
 Inspired by the GBD-200's main time screen. Every digit, letter and icon was traced dot by dot from photos of the real watch's LCD, then laid out exactly where it sits on the real display: the big time, date, weekday, seconds, the status icons along the bottom, and even its octagon-shaped LCD panel.
 
@@ -22,7 +22,7 @@ MORE
 
 Temperature uses the Pebble app's weather plugin (developer preview): turn on plugins in the Pebble app and allow the Location permission. Location is used only by the Pebble app to look up the weather; this watchface doesn't collect, store or send any data.
 
-Pebble Time 2 only.
+Pebble Time 2, Pebble 2 Duo and Pebble 2. On the 144-pixel screens the face is drawn 1:1 (one LCD dot per pixel), which is about the real watch's size; display size options are Pebble Time 2 only.
 
 Open source (MIT): github.com/CATEIN/gbd-200-1-pebble
 
